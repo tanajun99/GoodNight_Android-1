@@ -8,12 +8,9 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 import android.view.ViewGroup;
 
 import com.github.florent37.materialviewpager.MaterialViewPager;
-import com.google.android.gms.maps.MapFragment;
-import com.google.android.gms.maps.SupportMapFragment;
 
 public class MainActivity extends ActionBarActivity {
 
@@ -60,11 +57,11 @@ public class MainActivity extends ActionBarActivity {
             public Fragment getItem(int position) {
                 switch (position) {
                     case 0:
-                        return RecyclerViewFragment.newInstance();
+                        return HotelRecyclerViewFragment.newInstance();
                     case 1:
                         return ScrollFragment.newInstance();
                     default:
-                        return RecyclerViewFragment.newInstance();
+                        return HotelRecyclerViewFragment.newInstance();
                 }
             }
 
