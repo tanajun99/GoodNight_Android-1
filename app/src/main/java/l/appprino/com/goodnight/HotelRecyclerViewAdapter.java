@@ -8,13 +8,13 @@ import android.view.ViewGroup;
 import java.util.List;
 
 
-public class TestRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class HotelRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     List<Object> contents;
 
     static final int TYPE_CELL = 1;
 
-    public TestRecyclerViewAdapter(List<Object> contents) {
+    public HotelRecyclerViewAdapter(List<Object> contents) {
         this.contents = contents;
     }
 

@@ -8,12 +8,9 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 import android.view.ViewGroup;
 
 import com.github.florent37.materialviewpager.MaterialViewPager;
-import com.google.android.gms.maps.MapFragment;
-import com.google.android.gms.maps.SupportMapFragment;
 
 public class MainActivity extends ActionBarActivity {
 
@@ -60,11 +57,11 @@ public class MainActivity extends ActionBarActivity {
             public Fragment getItem(int position) {
                 switch (position) {
                     case 0:
-                        return RecyclerViewFragment.newInstance();
+                        return HotelRecyclerViewFragment.newInstance();
                     case 1:
                         return ScrollFragment.newInstance();
                     default:
-                        return RecyclerViewFragment.newInstance();
+                        return HotelRecyclerViewFragment.newInstance();
                 }
             }
 
@@ -81,11 +78,11 @@ public class MainActivity extends ActionBarActivity {
                 String imageUrl = "";
                 switch (position){
                     case 0:
-                        imageUrl = "http://cdn1.tnwcdn.com/wp-content/blogs.dir/1/files/2014/06/wallpaper_51.jpg";
+                        imageUrl = "https://d1a3f4spazzrp4.cloudfront.net/web-fresh/home/heros/home-hero-5-1440-900.jpg";
                         color = getResources().getColor(R.color.blue);
                         break;
                     case 1:
-                        imageUrl = "https://fs01.androidpit.info/a/63/0e/android-l-wallpapers-630ea6-h900.jpg";
+                        imageUrl = "http://webeater.fr/wp-content/uploads/Uber-illustration-2.jpg";
                         color = getResources().getColor(R.color.blue);
                         break;
                 }
