@@ -3,4 +3,7 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="hotel_name">Hotel Name</string>
+    <string name="hotel_erea">Hotel Erea</string>
+    <string name="hotel_status">Hotel Status</string>
 </resources>
