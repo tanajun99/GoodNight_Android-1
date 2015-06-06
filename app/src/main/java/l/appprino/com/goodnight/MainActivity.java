@@ -12,6 +12,8 @@ import android.view.Menu;
 import android.view.ViewGroup;
 
 import com.github.florent37.materialviewpager.MaterialViewPager;
+import com.google.android.gms.maps.MapFragment;
+import com.google.android.gms.maps.SupportMapFragment;
 
 public class MainActivity extends ActionBarActivity {
 
