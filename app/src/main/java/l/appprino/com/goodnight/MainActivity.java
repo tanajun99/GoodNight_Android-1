@@ -91,7 +91,6 @@ public class MainActivity extends ActionBarActivity {
                 final int fadeDuration = 400;
                 mViewPager.setImageUrl(imageUrl,fadeDuration);
                 mViewPager.setColor(color,fadeDuration);
-
             }
 
             @Override
