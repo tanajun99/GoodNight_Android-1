@@ -12,7 +12,6 @@ public class TestRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.V
 
     List<Object> contents;
 
-    static final int TYPE_HEADER = 0;
     static final int TYPE_CELL = 1;
 
     public TestRecyclerViewAdapter(List<Object> contents) {
@@ -21,12 +20,7 @@ public class TestRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.V
 
     @Override
     public int getItemViewType(int position) {
-        switch (position) {
-            case 0:
-                return TYPE_HEADER;
-            default:
-                return TYPE_CELL;
-        }
+        return TYPE_CELL;
     }
 
     @Override
@@ -39,12 +33,6 @@ public class TestRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.V
         View view = null;
 
         switch (viewType) {
-            case TYPE_HEADER: {
-                view = LayoutInflater.from(parent.getContext())
-                        .inflate(R.layout.list_item_card_big, parent, false);
-                return new RecyclerView.ViewHolder(view) {
-                };
-            }
             case TYPE_CELL: {
                 view = LayoutInflater.from(parent.getContext())
                         .inflate(R.layout.list_item_card_small, parent, false);
@@ -59,8 +47,6 @@ public class TestRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.V
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         switch (getItemViewType(position)) {
-            case TYPE_HEADER:
-                break;
             case TYPE_CELL:
                 break;
         }
