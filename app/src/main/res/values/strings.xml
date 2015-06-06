@@ -8,4 +8,10 @@
     <string name="hotel_status">Hotel Status</string>
     <string name="title_activity_maps">Map</string>
     <string name="title_activity_log_in">LogInActivity</string>
+    <string name="title_activity_detail">DetailActivity</string>
+    <string name="hotel_name_detail">Hotel Name</string>
+    <string name="hotel_descroption">Description</string>
+    <string name="hotel_address">hotel address</string>
+    <string name="hotel_price">price</string>
+    <string name="android_check">Checkin -- Checkout</string>
 </resources>
