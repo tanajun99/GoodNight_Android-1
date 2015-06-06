@@ -21,5 +21,9 @@
             </intent-filter>
         </activity>
     </application>
+    <!-- インターネット接続用のパーミッションと、ネットワーク状況取得用の
+            パーミッションを追加する。 -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
 </manifest>
