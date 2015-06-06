@@ -6,4 +6,5 @@
     android:fitsSystemWindows="true"
     android:adjustViewBounds="true"
     android:layout_centerHorizontal="true"
-    android:src="@android:color/white" />
+    android:src="@android:color/white"
+    android:background="@color/blue"/>

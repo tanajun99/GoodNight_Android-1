@@ -29,6 +29,7 @@ public class MainActivity extends ActionBarActivity {
         setTitle("");
 
         mViewPager = (MaterialViewPager) findViewById(R.id.materialViewPager);
+        getSupportActionBar().hide();
 
         toolbar = mViewPager.getToolbar();
         mDrawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -51,19 +52,15 @@ public class MainActivity extends ActionBarActivity {
 
         mViewPager.getViewPager().setAdapter(new FragmentStatePagerAdapter(getSupportFragmentManager()) {
 
-            int oldPosition = -1;
+            int oldPosition = 0;
 
             @Override
             public Fragment getItem(int position) {
                 switch (position) {
-                    //case 0:
-                    //    return RecyclerViewFragment.newInstance();
+                    case 0:
+                        return RecyclerViewFragment.newInstance();
                     case 1:
                         return ScrollFragment.newInstance();
-                    //case 2:
-                    //    return ListViewFragment.newInstance();
-                    //case 3:
-                    //    return WebViewFragment.newInstance();
                     default:
                         return RecyclerViewFragment.newInstance();
                 }
@@ -87,15 +84,7 @@ public class MainActivity extends ActionBarActivity {
                         break;
                     case 1:
                         imageUrl = "https://fs01.androidpit.info/a/63/0e/android-l-wallpapers-630ea6-h900.jpg";
-                        color = getResources().getColor(R.color.green);
-                        break;
-                    case 2:
-                        imageUrl = "http://www.droid-life.com/wp-content/uploads/2014/10/lollipop-wallpapers10.jpg";
-                        color = getResources().getColor(R.color.cyan);
-                        break;
-                    case 3:
-                        imageUrl = "http://www.tothemobile.com/wp-content/uploads/2014/07/original.jpg";
-                        color = getResources().getColor(R.color.red);
+                        color = getResources().getColor(R.color.blue);
                         break;
                 }
 
@@ -107,28 +96,23 @@ public class MainActivity extends ActionBarActivity {
 
             @Override
             public int getCount() {
-                return 4;
+                return 2;
             }
 
             @Override
             public CharSequence getPageTitle(int position) {
                 switch (position){
                     case 0:
-                        return "Selection";
+                        return "LIST";
                     case 1:
-                        return "Actualités";
-                    case 2:
-                        return "Professionnel";
-                    case 3:
-                        return "Divertissement";
+                        return "MAP";
                 }
                 return "";
             }
         });
         mViewPager.getViewPager().setOffscreenPageLimit(mViewPager.getViewPager().getAdapter().getCount());
         mViewPager.getPagerTitleStrip().setViewPager(mViewPager.getViewPager());
-
-        mViewPager.getViewPager().setCurrentItem(1);
+        mViewPager.getViewPager().setCurrentItem(0);
     }
 
     @Override
