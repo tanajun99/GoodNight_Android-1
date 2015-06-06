@@ -22,6 +22,10 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name=".OAuth.TesetHttp"
+            android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -45,5 +49,9 @@
             android:label="@string/title_activity_log_in" >
         </activity>
     </application>
+    <!-- インターネット接続用のパーミッションと、ネットワーク状況取得用の
+            パーミッションを追加する。 -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
 </manifest>
