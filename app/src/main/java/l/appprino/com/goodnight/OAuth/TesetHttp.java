@@ -1,8 +1,10 @@
 package l.appprino.com.goodnight.OAuth;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.webkit.WebView;
 
 import org.apache.http.Header;
 import org.apache.http.HttpEntity;
@@ -24,6 +26,8 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
+import l.appprino.com.goodnight.R;
+
 /**
  * Created by shirakawayoshimaru on 15/06/07.
  */
@@ -33,8 +37,35 @@ public class TesetHttp extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.d("HTML", "START");
-        Test();
+        setContentView(R.layout.activity_login);
 
+        // Preferencesからアクセストークンを取得
+        OAuthTokenStore store = new OAuthTokenStore(getApplicationContext());
+        String accessToken = store.getToken();
+        if (accessToken == null) {
+            // アクセストークンがない場合の処理
+//             foursquareへの認証をさせるためのActivityへ移動
+            Intent i = new Intent(this, LoginUber.class);
+            startActivity(i);
+            finish();
+
+        } else {
+            // アクセストークンがある場合の処理
+            try {
+                OAuthClient.RequestUber(this);
+            }catch (Exception e) {
+                Log.d("TesetHttp",e.toString());
+            }
+
+        }
+
+
+
+//        UberOAuth oAuth =new UberOAuth();
+//        oAuth.authorize();
+//
+//        WebView webView = (WebView)findViewById(R.id.web_view);
+//        webView.loadUrl(oAuth.URL_AUTHORIZE);
     }
 
     public void Test() {
