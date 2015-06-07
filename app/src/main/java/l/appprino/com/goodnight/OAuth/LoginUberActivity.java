@@ -1,5 +1,6 @@
 package l.appprino.com.goodnight.OAuth;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -21,7 +22,7 @@ import java.io.IOException;
 
 import l.appprino.com.goodnight.R;
 
-public class LoginUber extends ActionBarActivity {
+public class LoginUberActivity extends Activity {
     private static final String TAG = "LoginUber";
 
     @Override
@@ -35,14 +36,12 @@ public class LoginUber extends ActionBarActivity {
                 onClickLoginButton();
             }
         });
-
     }
 
     public void onClickLoginButton() {
         // ブラウザで4sqへの認証画面を呼び出す
         OAuthClient.login(this);
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

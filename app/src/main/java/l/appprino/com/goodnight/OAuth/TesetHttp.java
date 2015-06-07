@@ -4,9 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.webkit.WebView;
 
-import org.apache.http.Header;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
@@ -15,15 +13,9 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.utils.URLEncodedUtils;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
-import org.apache.http.params.HttpConnectionParams;
-import org.apache.http.params.HttpParams;
 import org.apache.http.util.EntityUtils;
-import org.json.*;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 import l.appprino.com.goodnight.R;
@@ -45,7 +37,7 @@ public class TesetHttp extends Activity {
         if (accessToken == null) {
             // アクセストークンがない場合の処理
 //             foursquareへの認証をさせるためのActivityへ移動
-            Intent i = new Intent(this, LoginUber.class);
+            Intent i = new Intent(this, LoginUberActivity.class);
             startActivity(i);
             finish();
 

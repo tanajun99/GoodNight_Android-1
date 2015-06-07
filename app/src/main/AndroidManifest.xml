@@ -58,15 +58,7 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name=".MapsActivity"
-            android:label="@string/title_activity_maps" >
-        </activity>
-        <activity
-            android:name=".LogInActivity"
-            android:label="@string/title_activity_log_in" >
-        </activity>
-        <activity
-            android:name=".OAuth.LoginUber"
+            android:name=".OAuth.LoginUberActivity"
             android:launchMode="singleTask"
             android:label="@string/title_activity_login_uber" >
             <intent-filter>
@@ -81,6 +73,7 @@
             android:name=".DetailActivity"
             android:label="@string/title_activity_detail" >
         </activity>
+    </application>
 
 
 </manifest>
