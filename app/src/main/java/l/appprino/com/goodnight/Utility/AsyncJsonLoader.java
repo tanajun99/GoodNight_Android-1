@@ -3,25 +3,30 @@ package l.appprino.com.goodnight.Utility;
 import android.os.AsyncTask;
 import android.util.Log;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.net.URL;
 
 /**
  * Created by shirakawayoshimaru on 15/06/07.
  */
 
-public class AsyncJsonLoader extends AsyncTask<String, Integer, JSONObject> {
+public class AsyncJsonLoader extends AsyncTask<String, Integer, JsonNode> {
     public interface AsyncCallback {
         void preExecute();
-        void postExecute(JSONObject result);
+        void postExecute(JsonNode result);
         void progressUpdate(int progress);
         void cancel();
     }
@@ -45,7 +50,7 @@ public class AsyncJsonLoader extends AsyncTask<String, Integer, JSONObject> {
     }
 
     @Override
-    protected void onPostExecute(JSONObject _result) {
+    protected void onPostExecute(JsonNode _result) {
         super.onPostExecute(_result);
         mAsyncCallback.postExecute(_result);
     }
@@ -57,29 +62,17 @@ public class AsyncJsonLoader extends AsyncTask<String, Integer, JSONObject> {
     }
 
     @Override
-    protected JSONObject doInBackground(String... _uri) {
-        HttpClient httpClient = new DefaultHttpClient();
-        HttpGet httpGet = new HttpGet(_uri[0]);
-        try {
-            HttpResponse httpResponse = httpClient.execute(httpGet);
-            if (httpResponse.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
-                ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-                httpResponse.getEntity().writeTo(outputStream);
-                outputStream.close();
-                String jsonStr =outputStream.toString();
-                Log.d("hoge:",jsonStr);
-                jsonStr =jsonStr.replaceAll("\\\\","");
+    protected JsonNode doInBackground(String... _uri) {
 
-                Log.d("hoge:rep:",jsonStr);
-                return new JSONObject(jsonStr);
-            } else {
-                httpResponse.getEntity().getContent().close();
-                throw new IOException();
-            }
+        try {
+            ObjectMapper mapper = new ObjectMapper();
+
+            JsonNode node = mapper.readTree(new URL(_uri[0]));
+            return node;
         } catch (IOException e) {
             Log.d("hoge:","parseError:"+e.toString());
             e.printStackTrace();
-        } catch (JSONException e) {
+        } catch (Exception e) {
             Log.d("hoge:","parseError:"+e.toString());
             e.printStackTrace();
         }

@@ -33,7 +33,7 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
 
         //jsonTest
-        LoadJson("https://goodnight.herokuapp.com/hotels.json");
+        LoadJson("http://goodnight.herokuapp.com/hotels.json");
         //jsonTest end
 
         setTitle("");
