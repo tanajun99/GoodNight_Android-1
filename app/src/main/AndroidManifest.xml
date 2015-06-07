@@ -31,7 +31,7 @@
             android:name=".MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+
                 <action android:name="android.intent.action.VIEW" />
 
                 <category android:name="android.intent.category.DEFAULT" />
@@ -39,9 +39,9 @@
 
                 <data
                     android:host="callback"
-                    android:scheme="oauthsample" />
+                    android:scheme="oauthsample2" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
+
             </intent-filter>
         </activity>
         <activity
@@ -62,10 +62,16 @@
             android:launchMode="singleTask"
             android:label="@string/title_activity_login_uber" >
             <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
                 <data android:scheme="oauthsample" android:host="callback" />
+                <category android:name="android.intent.category.LAUNCHER" />
+                <data
+                    android:host="callback"
+                    android:scheme="oauthsample" />
+
             </intent-filter>
         </activity>
 

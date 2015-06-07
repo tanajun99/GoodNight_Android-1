@@ -20,6 +20,7 @@ import org.json.JSONException;
 
 import java.io.IOException;
 
+import l.appprino.com.goodnight.MainActivity;
 import l.appprino.com.goodnight.R;
 
 public class LoginUberActivity extends Activity {
@@ -130,7 +131,7 @@ public class LoginUberActivity extends Activity {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            mProgressDialog.setMessage("weeeeeey");
+            mProgressDialog.setMessage("認証中");
             mProgressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
             mProgressDialog.show();
         }
@@ -141,7 +142,7 @@ public class LoginUberActivity extends Activity {
     }
 
     private void startApp() {
-        Intent i = new Intent(this, TesetHttp.class);
+        Intent i = new Intent(this, MainActivity.class);
         startActivity(i);
         finish();
     }
