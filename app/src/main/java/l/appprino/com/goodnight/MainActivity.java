@@ -9,9 +9,16 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.ViewGroup;
 
 import com.github.florent37.materialviewpager.MaterialViewPager;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import l.appprino.com.goodnight.Utility.AsyncJsonLoader;
 
 public class MainActivity extends ActionBarActivity {
 
@@ -25,6 +32,10 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //jsonTest
+        LoadJson("https://goodnight.herokuapp.com/hotels.json");
+        //jsonTest end
 
         setTitle("");
 
@@ -120,4 +131,37 @@ public class MainActivity extends ActionBarActivity {
         mDrawerToggle.syncState();
     }
 
+    void LoadJson(String uri ){
+        AsyncJsonLoader asyncJsonLoader = new AsyncJsonLoader(new AsyncJsonLoader.AsyncCallback() {
+            // 実行前
+            public void preExecute() {
+            }
+            // 実行後
+            public void postExecute(JSONObject result) {
+                if (result == null) {
+                    //error
+                    Log.d("hoge:","result Nulだよ！");
+                    return;
+                }
+                try {
+                    JSONArray jsonList = result.getJSONArray("");
+                    for (int i = 0; i < jsonList.length(); i++) {
+                        Log.d("hoge:", "name:" + jsonList.getJSONObject(i).getString("name"));
+                    }
+                    Log.d("hoge:","try中だよ");
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    Log.d("hoge:","tryerror:"+e.toString());
+                }
+            }
+            // 実行中
+            public void progressUpdate(int progress) {
+            }
+            // キャンセル
+            public void cancel() {
+            }
+        });
+        // 処理を実行
+        asyncJsonLoader.execute(uri);
+    }
 }
