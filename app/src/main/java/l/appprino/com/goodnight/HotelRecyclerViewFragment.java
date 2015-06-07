@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import com.github.florent37.materialviewpager.MaterialViewPagerHelper;
 import com.github.florent37.materialviewpager.adapter.RecyclerViewMaterialAdapter;
 
@@ -21,6 +22,7 @@ public class HotelRecyclerViewFragment extends Fragment {
 
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
+    JsonNode node ;
 
     private List<HotelItem> mContentItems = new ArrayList<>();
 
@@ -43,7 +45,14 @@ public class HotelRecyclerViewFragment extends Fragment {
 
         for (int i = 0; i < 100; ++i) {
             HotelItem item =new HotelItem();
-
+            item.HotelName = node.get(0).get(i).get("name").toString();
+            item.HotelAria= node.get(0).get(i).get("area").get("name").toString();
+            item.HotelAddress = "hoge";
+            item.Description = "hoge";
+            item.Id= 0;
+            item.ImageUrl_big = "hoge";
+            item.ImageUrl_mini = "hoge";
+            item.Price = 0;
             mContentItems.add(item);
         }
         mAdapter = new RecyclerViewMaterialAdapter(new HotelRecyclerViewAdapter(mContentItems));

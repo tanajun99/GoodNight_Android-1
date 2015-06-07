@@ -7,5 +7,5 @@ import java.util.List;
  * Created by shirakawayoshimaru on 15/06/07.
  */
 public class HogeList {
-    List<Hoge>             list = new ArrayList<Hoge>();
+    List<Hoge> list = new ArrayList<Hoge>();
 }
