@@ -15,7 +15,7 @@
     <string name="hotel_address">hotel address</string>
     <string name="hotel_price">price</string>
     <string name="android_check">Checkin -- Checkout</string>
-    <string name="login_button">LOG IN WITH UBER</string>
+    <string name="login_button">Log in with Uber</string>
     <string name="good_night_name">GoodNight</string>
     <string name="sub_title">Smarter than others with GoodNight</string>
 </resources>

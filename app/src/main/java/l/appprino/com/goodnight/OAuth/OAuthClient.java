@@ -37,6 +37,7 @@ public class OAuthClient {
     private static final String ACCESS_TOKEN_URL = "https://login.uber.com/oauth/token";
 
     private static final String CALLBACK_URL = "oauthsample://callback";
+    private static final String CALLBACK_URL2 = "oauthsample2://callback";
 
     private static final String CLIENT_ID = "YbIHVTi12H1Q7dEb0o2y-9ljS-HmYP0z";
 
@@ -114,7 +115,7 @@ public class OAuthClient {
         params.add(new BasicNameValuePair("client_id", CLIENT_ID));
         params.add(new BasicNameValuePair("client_secret", CLIENT_SECRET));
         params.add(new BasicNameValuePair("grant_type", "authorization_code"));
-        params.add(new BasicNameValuePair("redirect_uri", CALLBACK_URL));
+        params.add(new BasicNameValuePair("redirect_uri", CALLBACK_URL2));
         params.add(new BasicNameValuePair("code", code));
 //        HttpGet httpGet = new HttpGet(uri.toString());
         HttpPost httpPost = new HttpPost(ACCESS_TOKEN_URL);
