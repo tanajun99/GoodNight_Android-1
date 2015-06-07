@@ -6,6 +6,7 @@
     android:padding="16dp"
     tools:context="l.appprino.com.goodnight.OAuth.LoginUberActivity"
     android:background="@mipmap/uber_image"
+
     >
 
     <Button

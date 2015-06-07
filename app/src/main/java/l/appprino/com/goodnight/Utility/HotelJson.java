@@ -9,6 +9,4 @@ public class HotelJson {
     public HotelAria ahotelAia;
     public HotelImage hotelImage;
     public HotelPosition hotelPosition;
-
-
 }

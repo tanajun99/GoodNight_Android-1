@@ -7,9 +7,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-/**
- * Created by shirakawayoshimaru on 15/06/07.
- */
+
 public class HotelJsonParser implements AsyncJsonLoader.AsyncCallback {
     @Override
     public void preExecute() {
