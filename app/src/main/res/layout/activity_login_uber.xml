@@ -8,7 +8,6 @@
     android:background="@mipmap/uber_image"
     >
 
-
     <Button
         android:id="@+id/oauthButton"
         android:layout_width="match_parent"
