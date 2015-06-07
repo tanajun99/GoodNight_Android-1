@@ -40,7 +40,7 @@ public class ScrollFragment extends Fragment {
         mMapView = (MapView)view.findViewById(R.id.map);
         mMapView.onCreate(savedInstanceState);
 
-        LatLng hotelstatus = new LatLng(-33.867, 151.206);
+        LatLng hotelstatus = new LatLng(35.671833,139.722214);
 
         mMap = mMapView.getMap();
         mMap.setMyLocationEnabled(true);
