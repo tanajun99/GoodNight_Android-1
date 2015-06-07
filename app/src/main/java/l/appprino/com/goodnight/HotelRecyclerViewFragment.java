@@ -22,7 +22,7 @@ public class HotelRecyclerViewFragment extends Fragment {
 
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
-    JsonNode node ;
+    public  JsonNode mNode;
 
     private List<HotelItem> mContentItems = new ArrayList<>();
 

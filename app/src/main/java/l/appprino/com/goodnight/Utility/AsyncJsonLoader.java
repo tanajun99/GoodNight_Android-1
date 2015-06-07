@@ -43,6 +43,7 @@ public class AsyncJsonLoader extends AsyncTask<String, Integer, JsonNode> {
     protected void onPostExecute(JsonNode _result) {
         super.onPostExecute(_result);
         mAsyncCallback.postExecute(_result);
+
     }
 
     @Override
@@ -58,6 +59,7 @@ public class AsyncJsonLoader extends AsyncTask<String, Integer, JsonNode> {
             ObjectMapper mapper = new ObjectMapper();
 
             JsonNode node = mapper.readTree(new URL(_uri[0]));
+
             return node;
         } catch (IOException e) {
             Log.d("hoge:","parseError:"+e.toString());
