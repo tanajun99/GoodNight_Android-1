@@ -45,8 +45,8 @@ public class HotelRecyclerViewFragment extends Fragment {
 
         for (int i = 0; i < 100; ++i) {
             HotelItem item =new HotelItem();
-            item.HotelName = node.get(0).get(i).get("name").toString();
-            item.HotelAria= node.get(0).get(i).get("area").get("name").toString();
+            item.HotelName = "hoge";
+            item.HotelAria= "hoge";
             item.HotelAddress = "hoge";
             item.Description = "hoge";
             item.Id= 0;

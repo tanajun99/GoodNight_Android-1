@@ -58,6 +58,7 @@ public class HotelRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.
                     @Override
                     public void onClick(View v) {
                         Intent intent = new Intent(v.getContext(),DetailActivity.class);
+
                         v.getContext().startActivity(intent);
                     }
                 });
