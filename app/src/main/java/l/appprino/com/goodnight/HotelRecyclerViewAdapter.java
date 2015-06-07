@@ -9,14 +9,16 @@ import android.widget.Toast;
 
 import java.util.List;
 
+import l.appprino.com.goodnight.Utility.HotelItem;
+
 
 public class HotelRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
-    List<Object> contents;
+    List<HotelItem> contents;
 
     static final int TYPE_CELL = 1;
 
-    public HotelRecyclerViewAdapter(List<Object> contents) {
+    public HotelRecyclerViewAdapter(List<HotelItem> contents) {
         this.contents = contents;
     }
 
@@ -45,6 +47,7 @@ public class HotelRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.
                         v.getContext().startActivity(intent);
                     }
                 });
+
                 return new RecyclerView.ViewHolder(view) {
                 };
             }
