@@ -19,9 +19,7 @@
             android:layout_height="300dp"
             android:id="@+id/hotel_image_large"
             android:src="@mipmap/ic_action_picture"
-            android:scaleType="fitXY"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentStart="true"/>
+            />
 
         <TextView
             android:layout_width="wrap_content"

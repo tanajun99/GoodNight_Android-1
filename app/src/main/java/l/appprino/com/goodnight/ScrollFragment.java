@@ -10,13 +10,16 @@ import android.view.ViewGroup;
 import com.github.florent37.materialviewpager.MaterialViewPagerHelper;
 import com.github.ksoichiro.android.observablescrollview.ObservableScrollView;
 
+import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 
 public class ScrollFragment extends Fragment {
 
     private ObservableScrollView mScrollView;
-    MapView mMapFragment;
+    MapView mMapView;
     GoogleMap mMap;
 
     public static Fragment newInstance() {
@@ -34,30 +37,37 @@ public class ScrollFragment extends Fragment {
 
         mScrollView = (ObservableScrollView) view.findViewById(R.id.scrollView);
 
-        mMapFragment = (MapView)view.findViewById(R.id.map);
-        mMapFragment.onCreate(savedInstanceState);
+        mMapView = (MapView)view.findViewById(R.id.map);
+        mMapView.onCreate(savedInstanceState);
 
-        mMap = mMapFragment.getMap();
+        LatLng hotelstatus = new LatLng(-33.867, 151.206);
+
+        mMap = mMapView.getMap();
         mMap.setMyLocationEnabled(true);
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(hotelstatus, 13));
+        mMap.addMarker(new MarkerOptions()
+                .title("Sydney")
+                .snippet("The most populous city in Australia.")
+                .position(hotelstatus));
 
         MaterialViewPagerHelper.registerScrollView(getActivity(), mScrollView, null);
     }
 
     @Override
     public void onResume() {
-        mMapFragment.onResume();
+        mMapView.onResume();
         super.onResume();
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        mMapFragment.onDestroy();
+        mMapView.onDestroy();
     }
 
     @Override
     public void onLowMemory() {
         super.onLowMemory();
-        mMapFragment.onLowMemory();
+        mMapView.onLowMemory();
     }
 }
