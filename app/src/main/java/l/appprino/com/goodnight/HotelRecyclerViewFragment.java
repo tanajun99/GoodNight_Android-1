@@ -15,12 +15,14 @@ import com.github.florent37.materialviewpager.adapter.RecyclerViewMaterialAdapte
 import java.util.ArrayList;
 import java.util.List;
 
+import l.appprino.com.goodnight.Utility.HotelItem;
+
 public class HotelRecyclerViewFragment extends Fragment {
 
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
 
-    private List<Object> mContentItems = new ArrayList<>();
+    private List<HotelItem> mContentItems = new ArrayList<>();
 
     public static HotelRecyclerViewFragment newInstance() {
         return new HotelRecyclerViewFragment();
@@ -39,9 +41,11 @@ public class HotelRecyclerViewFragment extends Fragment {
         mRecyclerView.setLayoutManager(layoutManager);
         mRecyclerView.setHasFixedSize(true);
 
-        for (int i = 0; i < 100; ++i)
-            mContentItems.add(new Object());
+        for (int i = 0; i < 100; ++i) {
+            HotelItem item =new HotelItem();
 
+            mContentItems.add(item);
+        }
         mAdapter = new RecyclerViewMaterialAdapter(new HotelRecyclerViewAdapter(mContentItems));
         mRecyclerView.setAdapter(mAdapter);
 
