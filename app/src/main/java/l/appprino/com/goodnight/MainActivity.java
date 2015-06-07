@@ -11,6 +11,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.ViewGroup;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import com.github.florent37.materialviewpager.MaterialViewPager;
 
 import org.json.JSONArray;
@@ -136,22 +137,22 @@ public class MainActivity extends ActionBarActivity {
             public void preExecute() {
             }
             // 実行後
-            public void postExecute(JSONObject result) {
+            public void postExecute(JsonNode result) {
                 if (result == null) {
                     //error
                     Log.d("hoge:","result Nulだよ！");
                     return;
                 }
-                try {
-                    JSONArray jsonList = result.getJSONArray("");
-                    for (int i = 0; i < jsonList.length(); i++) {
-                        Log.d("hoge:", "name:" + jsonList.getJSONObject(i).getString("name"));
-                    }
-                    Log.d("hoge:","try中だよ");
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                    Log.d("hoge:","tryerror:"+e.toString());
-                }
+//                try {
+//                    JSONArray jsonList = result.getJSONArray("");
+//                    for (int i = 0; i < jsonList.length(); i++) {
+//                        Log.d("hoge:", "name:" + jsonList.getJSONObject(i).getString("name"));
+//                    }
+//                    Log.d("hoge:","try中だよ");
+//                } catch (JSONException e) {
+//                    e.printStackTrace();
+//                    Log.d("hoge:","tryerror:"+e.toString());
+//                }
             }
             // 実行中
             public void progressUpdate(int progress) {
